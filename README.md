@@ -60,6 +60,6 @@ O **Insertion Sort** percorre a lista e insere cada elemento na posição corret
 
 ## Escolha dos algoritmos
 
-Escolhi o Bubble Sort, Selection Sort e Insertion Sort por serem algoritmos clássicos, simples de implementar e muito utilizados em contextos acadêmicos. Eles permitem entender bem os conceitos de comparações, trocas e comportamento em diferentes situações. Além disso, são ideais para comparar eficiência em listas pequenas, como as usadas neste projeto.
+Escolhi o Bubble Sort, Selection Sort e Insertion Sort por serem algoritmos clássicos, simples de implementar e muito utilizados.
 
 
