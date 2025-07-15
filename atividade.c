@@ -10,7 +10,7 @@ typedef struct {
     int idade;
 } Pessoa;
 
-// Copia o array original para outro
+
 void copiar_array(Pessoa destino[], Pessoa origem[]) {
     for (int i = 0; i < TAM; i++) {
         destino[i] = origem[i];
@@ -24,7 +24,7 @@ void imprimir_pessoas(Pessoa pessoas[]) {
     printf("\n");
 }
 
-// BUBBLE SORT
+
 void bubble_sort(Pessoa pessoas[], int *comparacoes, int *trocas) {
     *comparacoes = 0;
     *trocas = 0;
@@ -37,11 +37,10 @@ void bubble_sort(Pessoa pessoas[], int *comparacoes, int *trocas) {
                 pessoas[j + 1] = temp;
                 (*trocas)++;
             }
-        }
     }
+ }
 }
 
-// SELECTION SORT
 void selection_sort(Pessoa pessoas[], int *comparacoes, int *trocas) {
     *comparacoes = 0;
     *trocas = 0;
@@ -52,7 +51,7 @@ void selection_sort(Pessoa pessoas[], int *comparacoes, int *trocas) {
             if (strcmp(pessoas[j].nome, pessoas[min].nome) < 0) {
                 min = j;
             }
-        }
+  }
         if (min != i) {
             Pessoa temp = pessoas[i];
             pessoas[i] = pessoas[min];
@@ -62,7 +61,7 @@ void selection_sort(Pessoa pessoas[], int *comparacoes, int *trocas) {
     }
 }
 
-// INSERTION SORT
+
 void insertion_sort(Pessoa pessoas[], int *comparacoes, int *trocas) {
     *comparacoes = 0;
     *trocas = 0;
@@ -76,13 +75,13 @@ void insertion_sort(Pessoa pessoas[], int *comparacoes, int *trocas) {
             (*trocas)++;
             j--;
         }
-        if (j >= 0) (*comparacoes)++; // Última comparação falsa
+        if (j >= 0) (*comparacoes)++;
 
         pessoas[j + 1] = chave;
     }
 }
 
-// Função para calcular tempo médio
+
 double tempo_medio(void (*funcao)(Pessoa[], int*, int*), Pessoa pessoas[]) {
     int comp, troca;
     clock_t inicio, fim;
@@ -102,7 +101,7 @@ double tempo_medio(void (*funcao)(Pessoa[], int*, int*), Pessoa pessoas[]) {
 int main() {
     Pessoa pessoas[TAM] = {
         {"Carlos", 25}, {"Bruna", 22}, {"Amanda", 19}, {"Eduardo", 30},
-        {"Fernanda", 24}, {"Diego", 21}, {"Helena", 26}, {"Igor", 28},
+        {"Fernanda", 24}, {"Diego", 21}, {"Helena", 26}, {"Marcos", 28},
         {"Juliana", 27}, {"Lucas", 23}, {"Mariana", 20}, {"Nicolas", 18},
         {"Otavio", 29}, {"Patricia", 31}, {"Rafael", 33}, {"Sofia", 32},
         {"Tiago", 34}
@@ -111,21 +110,21 @@ int main() {
     Pessoa copia[TAM];
     int comparacoes, trocas;
 
-    printf("===== BUBBLE SORT =====\n");
+    printf("--- BUBBLE SORT ---\n");
     copiar_array(copia, pessoas);
     double tempo_bubble = tempo_medio(bubble_sort, pessoas);
     bubble_sort(copia, &comparacoes, &trocas);
     imprimir_pessoas(copia);
     printf("Comparacao: %d\nTrocas: %d\nTempo medio: %.2f ms\n\n", comparacoes, trocas, tempo_bubble);
 
-    printf("===== SELECTION SORT =====\n");
+    printf("-- SELECTION SORT ---\n");
     copiar_array(copia, pessoas);
     double tempo_selection = tempo_medio(selection_sort, pessoas);
     selection_sort(copia, &comparacoes, &trocas);
     imprimir_pessoas(copia);
     printf("Comparacao: %d\nTrocas: %d\nTempo medio: %.2f ms\n\n", comparacoes, trocas, tempo_selection);
 
-    printf("===== INSERTION SORT =====\n");
+    printf("--- INSERTION SORT ---\n");
     copiar_array(copia, pessoas);
     double tempo_insertion = tempo_medio(insertion_sort, pessoas);
     insertion_sort(copia, &comparacoes, &trocas);
