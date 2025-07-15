@@ -1,4 +1,4 @@
-# Projeto de Ordenação em C
+# Projeto de Ordenação 
 
 Este projeto em linguagem C implementa e compara **três algoritmos de ordenação**: **Bubble Sort**, **Selection Sort** e **Insertion Sort**.  
 Os dados utilizados são 17 pessoas (nome e idade), armazenados em um vetor de structs. A ordenação é feita **em ordem alfabética pelo nome**, utilizando a função `strcmp`.
